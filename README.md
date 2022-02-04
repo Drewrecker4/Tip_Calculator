@@ -31,8 +31,8 @@ Add a screenshot of your solution.
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/Drewrecker4/Tip_Calculator)
-- Live Site URL: [Add live site URL here](https://drewrecker4.github.io/Tip_Calculator/)
+- Solution URL: (https://github.com/Drewrecker4/Tip_Calculator)
+- Live Site URL: (https://drewrecker4.github.io/Tip_Calculator/)
 
 ## My process
 
