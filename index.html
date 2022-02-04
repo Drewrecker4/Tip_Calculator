@@ -25,71 +25,93 @@
         <img src="./images/logo.svg" alt="logo saying splitter" />
       </div>
     </header>
-    <section class="calculator">
-      <div class="billing-area">
-        <form>
-          <label for="bill">Bill</label>
-          <div>
-            <img src="./images/icon-dollar.svg" alt="dollar sign" />
-            <input
-              type="number"
-              min="0.00"
-              step="0.01"
-              max="1000000.00"
-              value="0"
-            />
+    <main>
+      <section class="calculator">
+        <div class="billing-area">
+          <form>
+            <label for="bill">Bill</label>
+            <div class="input-field">
+              <div class="icon-container">
+                <img
+                  class="icon-dollar"
+                  src="./images/icon-dollar.svg"
+                  alt="dollar sign"
+                />
+              </div>
+              <input
+                class="bill-input"
+                type="number"
+                min="0.00"
+                step="0.01"
+                max="1000000.00"
+                placeholder="0"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="tip-selection">
+          <form>
+            <label for="select tip">Select Tip %</label>
+            <div class="tip-btns-container">
+              <button type="button">5%</button>
+              <button type="button">10%</button>
+              <button type="button">15%</button>
+              <button type="button">25%</button>
+              <button type="button">50%</button>
+              <input
+                class="custom-input"
+                type="number"
+                min="0"
+                step="0.1"
+                max="100"
+                placeholder="Custom"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="number-of-people">
+          <form>
+            <label for="number of people">Number of People</label>
+            <div class="input-field">
+              <div class="icon-container">
+                <img src="./images/icon-person.svg" alt="person icon" />
+              </div>
+              <input type="number" min="1" step="1" max="100" placeholder="0" />
+            </div>
+          </form>
+        </div>
+        <div class="tip-results">
+          <div class="tip-results-field">
+            <div class="tip-amount-text">
+              <span class="tip-amount-span">Tip Amount</span>
+              <span class="tip-person-span">/ person</span>
+            </div>
+            <div class="tip-amount-value">
+              <span class="tip-value-placeholder">$0.00</span>
+              <span class="tip-value-result">$0.00</span>
+            </div>
+            <div class="total-amount-text">
+              <span class="total-amount-span">Total</span>
+              <span class="total-person-span">/ person</span>
+            </div>
+            <div class="total-amount-value">
+              <span class="total-value-placeholder">$0.00</span>
+              <span class="total-value-result">$0.00</span>
+            </div>
           </div>
-        </form>
-      </div>
-      <div class="tip-selection">
-        <form>
-          <label for="select tip">Select Tip %</label>
-          <button>5%</button>
-          <button>10%</button>
-          <button>15%</button>
-          <button>25%</button>
-          <button>50%</button>
-          <input type="number" min="0" step="1" max="100" value="Custom" />
-        </form>
-      </div>
-      <div class="number-of-people">
-        <form>
-          <label for="number of people">Number of People</label>
-          <div>
-            <img src="./images/icon-person.svg" alt="person icon" />
-            <input type="number" min="1" step="1" max="100" value="0" />
-          </div>
-        </form>
-      </div>
-      <div class="tip-results">
-        <div class="tip-results-field">
-          <div>
-            <span>Tip Amount</span>
-            <span>/ person</span>
-          </div>
-          <div>
-            <span>Total</span>
-            <span>/ person</span>
-          </div>
-          <div>
-            <span>$0.00</span>
-            <span>calculation*</span>
-          </div>
-          <div>
-            <span>$0.00</span>
-            <span>calculation*</span>
+          <div class="reset-btn-container">
+            <button class="reset-btn">RESET</button>
           </div>
         </div>
-        <div class="reset-btn-container">
-          <button>Reset</button>
-        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Drew Recker</a>.
       </div>
-    </section>
-    <section class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Drew Recker</a>.
-    </section>
+    </footer>
   </body>
 </html>
