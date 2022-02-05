@@ -38,6 +38,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 /*
 main {
   
@@ -53,6 +54,20 @@ header {
   border-radius: 18px;
   margin-bottom: 60px;
   padding: 25px;
+  display: grid;
+  max-width: 1000px;
+}
+
+.calculator-section-1 {
+  grid-row: 1;
+  grid-column: 1;
+  max-width: 493px;
+}
+
+.calculator-section-2 {
+  grid-row: 2;
+  grid-column: 1;
+  width: 100%;
 }
 
 input {
@@ -66,11 +81,20 @@ input {
   width: 90%;
 }
 
+input:focus {
+  outline: none;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
 .input-field {
   padding: 6px 16px;
   background-color: var(--lighter-gray-cyan);
   border-radius: 4px;
   display: flex;
+  max-width: 493px;
 }
 
 label {
@@ -120,9 +144,15 @@ label {
 }
 
 button {
-  width: 155px;
+  width: 47%;
   border-radius: 4px;
   padding: 8px;
+}
+
+@media (min-width: 375px) {
+  button {
+    width: 155px;
+  }
 }
 
 button:hover {
@@ -132,11 +162,17 @@ button:hover {
 }
 
 .custom-input {
-  width: 155px;
+  width: 47%;
   border-radius: 4px;
   padding: 0 16px;
-  color: var(--darker-gray-cyan);
+  color: var(--dark-cyan);
   background-color: var(--lighter-gray-cyan);
+}
+
+@media (min-width: 375px) {
+  .custom-input {
+    width: 155px;
+  }
 }
 
 .tip-results {
@@ -145,6 +181,7 @@ button:hover {
   font-size: 16px;
   margin-top: 30px;
   border-radius: 14px;
+  width: 100%;
 }
 
 .tip-results-field {
@@ -272,4 +309,71 @@ footer {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 800px) {
+  .calculator-section-1 {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .calculator-section-2 {
+    /*margin-left: 30px;*/
+    grid-row: 1;
+    grid-column: 2;
+    flex-grow: 100;
+    /*height: 100%;*/
+  }
+
+  .tip-amount-text {
+    margin-bottom: 30px;
+  }
+
+  .tip-amount-value {
+    margin-bottom: 30px;
+  }
+
+  .total-amount-text {
+    margin-bottom: 100px;
+  }
+
+  .total-amount-value {
+    margin-bottom: 100px;
+  }
+
+  .tip-value-placeholder {
+    font-size: 40px;
+  }
+
+  .tip-value-result {
+    font-size: 40px;
+  }
+
+  .total-value-placeholder {
+    font-size: 40px;
+  }
+
+  .total-value-result {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1000px) {
+  body {
+    align-items: center;
+  }
+
+  .calculator {
+    width: 1000px;
+    margin-top: 40px;
+    margin-bottom: 200px;
+  }
+
+  .logo-container {
+    margin-top: 120px;
+  }
+
+  .tip-results {
+    padding: 20px;
+  }
 }
