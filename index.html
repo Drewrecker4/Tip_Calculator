@@ -26,10 +26,10 @@
       </div>
     </header>
     <main>
-      <section class="calculator">
+      <section id="calculator-section" class="calculator">
         <div class="calculator-section-1">
           <div class="billing-area">
-            <form onSubmit="return false;">
+            <form onsubmit="runTipCalculator();" action="#calculator-section">
               <label for="bill">Bill</label>
               <div class="input-field">
                 <div class="icon-container">
@@ -40,26 +40,47 @@
                   />
                 </div>
                 <input
+                  id="bill-value"
                   class="bill-input"
                   type="number"
-                  min="0.00"
+                  min="0.01"
                   step="0.01"
                   max="1000000.00"
                   placeholder="0"
+                  pattern="^\d*(\.\d{0,2})?$"
                 />
               </div>
             </form>
           </div>
           <div class="tip-selection">
-            <form onSubmit="return false;">
+            <form onsubmit="runTipCalculator();" action="#calculator-section">
               <label for="select tip">Select Tip %</label>
               <div class="tip-btns-container">
-                <button type="button">5%</button>
-                <button type="button">10%</button>
-                <button type="button">15%</button>
-                <button type="button">25%</button>
-                <button type="button">50%</button>
+                <button id="five-percent" class="button-percent" type="button">
+                  5%
+                </button>
+                <button id="ten-percent" class="button-percent" type="button">
+                  10%
+                </button>
+                <button
+                  id="fifteen-percent"
+                  class="button-percent"
+                  type="button"
+                >
+                  15%
+                </button>
+                <button
+                  id="twenty-five-percent"
+                  class="button-percent"
+                  type="button"
+                >
+                  25%
+                </button>
+                <button id="fifty-percent" class="button-percent" type="button">
+                  50%
+                </button>
                 <input
+                  id="custom-value"
                   class="custom-input"
                   type="number"
                   min="0"
@@ -71,13 +92,15 @@
             </form>
           </div>
           <div class="number-of-people">
-            <form onSubmit="return false;">
+            <form onsubmit="runTipCalculator();" action="#calculator-section">
               <label for="number of people">Number of People</label>
               <div class="input-field">
                 <div class="icon-container">
                   <img src="./images/icon-person.svg" alt="person icon" />
                 </div>
                 <input
+                  id="person-value"
+                  class="person-input"
                   type="number"
                   min="1"
                   step="1"
@@ -85,6 +108,11 @@
                   placeholder="0"
                 />
               </div>
+              <span id="test1"></span>
+              <span id="test2"></span>
+              <span id="test3"></span>
+              <span id="test4"></span>
+              <span id="test5"></span>
             </form>
           </div>
         </div>
@@ -96,16 +124,20 @@
                 <span class="tip-person-span">/ person</span>
               </div>
               <div class="tip-amount-value">
-                <span class="tip-value-placeholder">$0.00</span>
-                <span class="tip-value-result">$0.00</span>
+                <span id="tip-placeholder" class="tip-value-placeholder"
+                  >$0.00</span
+                >
+                <span id="tip-calc" class="tip-value-result"></span>
               </div>
               <div class="total-amount-text">
                 <span class="total-amount-span">Total</span>
                 <span class="total-person-span">/ person</span>
               </div>
               <div class="total-amount-value">
-                <span class="total-value-placeholder">$0.00</span>
-                <span class="total-value-result">$0.00</span>
+                <span id="total-placeholder" class="total-value-placeholder"
+                  >$0.00</span
+                >
+                <span id="total-calc" class="total-value-result"></span>
               </div>
             </div>
             <div class="reset-btn-container">
@@ -123,5 +155,6 @@
         >. Coded by <a href="#">Drew Recker</a>.
       </div>
     </footer>
+    <script src="app.js"></script>
   </body>
 </html>

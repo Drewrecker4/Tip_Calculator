@@ -80,13 +80,23 @@ input {
   text-align: end;
   width: 90%;
 }
-
+/*
 input:focus {
   outline: none;
-}
+}*/
 
 input:hover {
   cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .input-field {
@@ -95,6 +105,18 @@ input:hover {
   border-radius: 4px;
   display: flex;
   max-width: 493px;
+}
+
+.bill-input:focus {
+  outline: none !important;
+}
+
+.person-input:focus {
+  outline: none !important;
+}
+
+.input-field:focus {
+  border: 2px solid var(--main-cyan);
 }
 
 label {
@@ -132,8 +154,9 @@ label {
   flex-wrap: wrap;
   gap: 14px;
   max-width: 100%;
+  justify-content: space-evenly;
 }
-
+/*
 .tip-btns-container > * {
   border-style: hidden;
   font-family: "Space Mono", monospace;
@@ -141,21 +164,46 @@ label {
   font-size: 24px;
   background-color: var(--dark-cyan);
   color: var(--main-white);
-}
+}*/
 
-button {
+.button-percent {
+  border-style: hidden;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: var(--dark-cyan);
+  color: var(--main-white);
   width: 47%;
   border-radius: 4px;
   padding: 8px;
 }
 
+.latch-button {
+  border-style: hidden;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: var(--main-cyan);
+  color: var(--dark-cyan);
+  width: 47%;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.latch-button:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 375px) {
-  button {
+  .button-percent {
+    width: 155px;
+  }
+  .latch-button {
     width: 155px;
   }
 }
 
-button:hover {
+.button-percent:hover {
   background-color: var(--main-cyan);
   color: var(--dark-cyan);
   cursor: pointer;
@@ -167,6 +215,10 @@ button:hover {
   padding: 0 16px;
   color: var(--dark-cyan);
   background-color: var(--lighter-gray-cyan);
+}
+
+.custom-input:focus {
+  outline-color: var(--main-cyan);
 }
 
 @media (min-width: 375px) {
@@ -293,6 +345,7 @@ button:hover {
 
 .reset-btn:hover {
   opacity: 1;
+  cursor: pointer;
 }
 
 footer {
@@ -315,6 +368,7 @@ footer {
   .calculator-section-1 {
     grid-row: 1;
     grid-column: 1;
+    max-width: 493px;
   }
 
   .calculator-section-2 {
