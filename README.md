@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://github.com/Drewrecker4/Tip_Calculator)
-- Live Site URL: (https://drewrecker4.github.io/Tip_Calculator/)
+- [Solution](https://github.com/Drewrecker4/Tip_Calculator)
+- [Live Site](https://drewrecker4.github.io/Tip_Calculator/)
 
 ## My process
 
