@@ -1,3 +1,5 @@
+//-------------VARIABLES-------------//
+
 const fiveToggle = document.querySelector("#five-percent");
 const tenToggle = document.querySelector("#ten-percent");
 const fifteenToggle = document.querySelector("#fifteen-percent");
@@ -6,13 +8,20 @@ const fiftyToggle = document.querySelector("#fifty-percent");
 const customToggle = document.querySelector("#custom-value");
 const billToggle = document.querySelector("#bill-value");
 const personToggle = document.querySelector("#person-value");
-
 let buttonValue = 0;
 let billValue;
 let billAmount;
 let numberOfPeople;
 let tipAmount;
 let totalAmount;
+let billValueValid;
+let tipAmountDisplay;
+let totalAmountDisplay;
+let tipAmountDollar;
+let totalAmountDollar;
+let dollar = "$";
+
+//-----------BUTTON-LOGIC------------//
 
 const latchFive = () => {
   document.getElementById("five-percent").classList.add("latch-button");
@@ -88,20 +97,15 @@ const unlatchCustom = () => {
   document.getElementById("custom-value").value = "";
 };
 
-let billValueValid;
-//let test12;
-//let billValueString;
+//---------INPUT-VALIDATION----------//
 
 const billInput = () => {
   billValue = document.getElementById("bill-value").value;
-  //billValueString = billValue.toString;
-  //test12 = new RegExp(/^d*(.d{0,2})?$/);
+  //verify input does not have more than 2 decimal places//
   if (/^\d+(\.\d{1,2})?$/.test(billValue)) {
     billValueValid = "true";
-    //document.getElementById("test5").innerHTML = billValueValid;
   } else {
     billValueValid = "false";
-    //document.getElementById("test5").innerHTML = billValueValid;
   }
 };
 
@@ -141,32 +145,18 @@ document
 
 const personInput = () => {
   numberOfPeople = document.getElementById("person-value").value;
-
+  //verify input is a whole number//
   if (/^\d+$/.test(numberOfPeople)) {
-    //if (numberOfPeople % numberOfPeople == 1) {
     numberOfPeopleValid = "true";
-    //document.getElementById("test4").innerHTML = numberOfPeopleValid;
   } else {
     numberOfPeopleValid = "false";
-    //document.getElementById("test4").innerHTML = numberOfPeopleValid;
   }
 };
-/*
-const validateForm = () => {
-  if (billValue > 0 && billValue <= 100) {
-    runTipCalculator();
-  } else {
-    return;
-  }
-};*/
 
-let tipAmountDisplay;
-let totalAmountDisplay;
-let tipAmountDollar;
-let totalAmountDollar;
-let dollar = "$";
+//----------RUN-CALCULATOR-----------//
 
 const runTipCalculator = () => {
+  //if statement prevents calculator from running until all inputs are satisfied//
   if (
     buttonValue >= 0 &&
     buttonValue <= 100 &&
@@ -188,23 +178,12 @@ const runTipCalculator = () => {
     document.getElementById("total-calc").innerHTML = totalAmountDollar;
     document.getElementById("tip-placeholder").style.visibility = "hidden";
     document.getElementById("total-placeholder").style.visibility = "hidden";
-    //document.getElementById("test1").innerHTML = totalAmount;
-    //document.getElementById("test2").innerHTML = tipAmount;
-    //document.getElementById("test3").innerHTML = buttonValue;
-    //document.getElementById("test4").innerHTML = billValue;
   } else {
     return;
   }
 };
 
-/*
-const getCustomValue = () => {  
-  unlatchFive();
-  unlatchTen();
-  unlatchFifteen();
-  unlatchTwentyFive();
-  unlatchFifty();
-};*/
+//-----------BUTTON-TOGGLE-----------//
 
 fiveToggle.addEventListener("click", () => {
   latchFive();
@@ -214,7 +193,6 @@ fiveToggle.addEventListener("click", () => {
   unlatchFifty();
   unlatchCustom();
   runTipCalculator();
-  //document.getElementById("test").innerHTML = buttonValue;
 });
 
 tenToggle.addEventListener("click", () => {
@@ -225,7 +203,6 @@ tenToggle.addEventListener("click", () => {
   unlatchFifty();
   unlatchCustom();
   runTipCalculator();
-  //document.getElementById("test").innerHTML = buttonValue;
 });
 
 fifteenToggle.addEventListener("click", () => {
@@ -236,7 +213,6 @@ fifteenToggle.addEventListener("click", () => {
   unlatchFifty();
   unlatchCustom();
   runTipCalculator();
-  //document.getElementById("test").innerHTML = buttonValue;
 });
 
 twentyFiveToggle.addEventListener("click", () => {
@@ -247,7 +223,6 @@ twentyFiveToggle.addEventListener("click", () => {
   unlatchFifty();
   unlatchCustom();
   runTipCalculator();
-  //document.getElementById("test").innerHTML = buttonValue;
 });
 
 fiftyToggle.addEventListener("click", () => {
@@ -258,8 +233,9 @@ fiftyToggle.addEventListener("click", () => {
   latchFifty();
   unlatchCustom();
   runTipCalculator();
-  //document.getElementById("test").innerHTML = buttonValue;
 });
+
+//-----------INPUT-CHANGES-----------//
 
 customToggle.addEventListener("change", () => {
   unlatchFive();
@@ -270,35 +246,25 @@ customToggle.addEventListener("change", () => {
   latchCustom();
   document.getElementById("custom-value").classList.remove("custom-invalid");
   document.getElementById("custom-value").classList.add("custom-input");
-  //runTipCalculator();
-  //document.getElementById("test").innerHTML = buttonValue;
 });
 
 billToggle.addEventListener("change", () => {
-  //if (e.key === "Enter") {
-  //runTipCalculator();
   billInput();
   document.getElementById("bill-input-field").classList.remove("bill-invalid");
   document.getElementById("bill-input-field").classList.add("input-field");
   document.getElementById("bill-zero-error").style.visibility = "hidden";
-  // } else {
-  //  return;
-  //}
 });
 
 personToggle.addEventListener("change", () => {
-  // if (e.key === "Enter") {
-  //runTipCalculator();
   personInput();
   document
     .getElementById("person-input-field")
     .classList.remove("person-invalid");
   document.getElementById("person-input-field").classList.add("input-field");
   document.getElementById("person-zero-error").style.visibility = "hidden";
-  // } else {
-  //   return;
-  //  }
 });
+
+//-----------RESET-BUTTON------------//
 
 const resetToggle = document.querySelector("#reset-button");
 

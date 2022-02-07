@@ -32,17 +32,11 @@ body {
   font-weight: 700;
   color: var(--darker-gray-cyan);
   background: var(--light-gray-cyan);
-  /*padding: 3rem 1rem;*/
   font-size: 24px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
-/*
-main {
-  
-}*/
 
 header {
   padding: 40px 0;
@@ -80,10 +74,6 @@ input {
   text-align: end;
   width: 90%;
 }
-/*
-input:focus {
-  outline: none;
-}*/
 
 input:hover {
   cursor: pointer;
@@ -161,22 +151,10 @@ label {
 
 .icon-container {
   flex: 1;
-  /*max-width: 12px;
-  max-height: 18px;*/
   position: relative;
-  /*top: 8px;*/
 }
-/*
-.icon-dollar {
-  flex: 1;
-  max-width: 12px;
-  max-height: 18px;
-  position: relative;
-  top: 8px;
-}
-*/
+
 .bill-input {
-  /*flex: 1;*/
   width: 90%;
 }
 
@@ -192,15 +170,6 @@ label {
   max-width: 100%;
   justify-content: space-evenly;
 }
-/*
-.tip-btns-container > * {
-  border-style: hidden;
-  font-family: "Space Mono", monospace;
-  font-weight: 700;
-  font-size: 24px;
-  background-color: var(--dark-cyan);
-  color: var(--main-white);
-}*/
 
 .button-percent {
   border-style: hidden;
@@ -406,7 +375,6 @@ footer {
   position: absolute;
   width: 100%;
   bottom: 0;
-  /*margin-top: 40px;*/
 }
 
 .attribution {
@@ -426,11 +394,9 @@ footer {
   }
 
   .calculator-section-2 {
-    /*margin-left: 30px;*/
     grid-row: 1;
     grid-column: 2;
     flex-grow: 100;
-    /*height: 100%;*/
   }
 
   .tip-amount-text {
