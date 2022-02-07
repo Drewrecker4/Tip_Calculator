@@ -88,21 +88,48 @@ const unlatchCustom = () => {
   document.getElementById("custom-value").value = "";
 };
 
+let billValueValid;
+//let test12;
+//let billValueString;
+
 const billInput = () => {
   billValue = document.getElementById("bill-value").value;
+  //billValueString = billValue.toString;
+  //test12 = new RegExp(/^d*(.d{0,2})?$/);
+  if (/^\d+(\.\d{1,2})?$/.test(billValue)) {
+    billValueValid = "true";
+    //document.getElementById("test5").innerHTML = billValueValid;
+  } else {
+    billValueValid = "false";
+    //document.getElementById("test5").innerHTML = billValueValid;
+  }
 };
 
 const personInput = () => {
   numberOfPeople = document.getElementById("person-value").value;
-};
 
+  if (/^\d+$/.test(numberOfPeople)) {
+    numberOfPeopleValid = "true";
+    //document.getElementById("test4").innerHTML = numberOfPeopleValid;
+  } else {
+    numberOfPeopleValid = "false";
+    //document.getElementById("test4").innerHTML = numberOfPeopleValid;
+  }
+};
+/*
 const validateForm = () => {
   if (billValue > 0 && billValue <= 100) {
     runTipCalculator();
   } else {
     return;
   }
-};
+};*/
+
+let tipAmountDisplay;
+let totalAmountDisplay;
+let tipAmountDollar;
+let totalAmountDollar;
+let dollar = "$";
 
 const runTipCalculator = () => {
   if (
@@ -110,21 +137,26 @@ const runTipCalculator = () => {
     buttonValue <= 100 &&
     billValue > 0 &&
     billValue <= 1000000 &&
+    billValueValid === "true" &&
+    numberOfPeopleValid === "true" &&
     numberOfPeople > 0 &&
     numberOfPeople <= 100
   ) {
     billAmount = billValue / numberOfPeople;
     tipAmount = (billValue * buttonValue) / numberOfPeople;
+    tipAmountDisplay = tipAmount.toFixed(2);
+    tipAmountDollar = dollar.concat(tipAmountDisplay);
     totalAmount = billAmount + tipAmount;
-    document.getElementById("tip-calc").innerHTML = tipAmount;
-    document.getElementById("total-calc").innerHTML = totalAmount;
+    totalAmountDisplay = totalAmount.toFixed(2);
+    totalAmountDollar = dollar.concat(totalAmountDisplay);
+    document.getElementById("tip-calc").innerHTML = tipAmountDollar;
+    document.getElementById("total-calc").innerHTML = totalAmountDollar;
     document.getElementById("tip-placeholder").style.visibility = "hidden";
     document.getElementById("total-placeholder").style.visibility = "hidden";
-    document.getElementById("test1").innerHTML = totalAmount;
-    document.getElementById("test2").innerHTML = tipAmount;
-    document.getElementById("test3").innerHTML = buttonValue;
-    document.getElementById("test4").innerHTML = billValue;
-    document.getElementById("test5").innerHTML = numberOfPeople;
+    //document.getElementById("test1").innerHTML = totalAmount;
+    //document.getElementById("test2").innerHTML = tipAmount;
+    //document.getElementById("test3").innerHTML = buttonValue;
+    //document.getElementById("test4").innerHTML = billValue;
   } else {
     return;
   }
@@ -205,13 +237,13 @@ customToggle.addEventListener("change", () => {
   //document.getElementById("test").innerHTML = buttonValue;
 });
 
-billToggle.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    //runTipCalculator();
-    billInput();
-  } else {
-    return;
-  }
+billToggle.addEventListener("change", () => {
+  //if (e.key === "Enter") {
+  //runTipCalculator();
+  billInput();
+  // } else {
+  //  return;
+  //}
 });
 
 personToggle.addEventListener("change", () => {
