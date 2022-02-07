@@ -25,9 +25,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution.
+[Screenshot](./Screenshot.PNG)
 
 ### Links
 
