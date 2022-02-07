@@ -30,8 +30,13 @@
         <div class="calculator-section-1">
           <div class="billing-area">
             <form onsubmit="runTipCalculator();" action="#calculator-section">
-              <label for="bill">Bill</label>
-              <div class="input-field">
+              <div class="bill-label-container">
+                <label for="bill">Bill</label>
+                <span id="bill-zero-error" class="zero-error"
+                  >Can't be zero</span
+                >
+              </div>
+              <div id="bill-input-field" class="input-field">
                 <div class="icon-container">
                   <img
                     class="icon-dollar"
@@ -83,7 +88,7 @@
                   id="custom-value"
                   class="custom-input"
                   type="number"
-                  min="0"
+                  min="0.0"
                   step="0.1"
                   max="100"
                   placeholder="Custom"
@@ -93,8 +98,15 @@
           </div>
           <div class="number-of-people">
             <form onsubmit="runTipCalculator();" action="#calculator-section">
-              <label for="number of people">Number of People</label>
-              <div class="input-field">
+              <div class="people-label-container">
+                <label for="number of people" class="people-label"
+                  >Number of People</label
+                >
+                <span id="person-zero-error" class="zero-error"
+                  >Can't be zero</span
+                >
+              </div>
+              <div id="person-input-field" class="input-field">
                 <div class="icon-container">
                   <img src="./images/icon-person.svg" alt="person icon" />
                 </div>
@@ -141,7 +153,7 @@
               </div>
             </div>
             <div class="reset-btn-container">
-              <button class="reset-btn">RESET</button>
+              <button id="reset-button" class="reset-btn">RESET</button>
             </div>
           </div>
         </div>

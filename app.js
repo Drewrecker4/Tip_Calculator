@@ -105,10 +105,45 @@ const billInput = () => {
   }
 };
 
+document
+  .getElementById("bill-value")
+  .addEventListener("invalid", function (event) {
+    event.preventDefault();
+    document.getElementById("bill-input-field").classList.add("bill-invalid");
+    document.getElementById("bill-input-field").classList.remove("input-field");
+    document.getElementById("bill-zero-error").style.visibility = "visible";
+  });
+
+document
+  .getElementById("custom-value")
+  .addEventListener("invalid", function (event) {
+    event.preventDefault();
+    document.getElementById("custom-value").classList.add("custom-invalid");
+    document.getElementById("custom-value").classList.remove("custom-input");
+  });
+
+document.getElementById("person-zero-error").style.visibility = "hidden";
+document.getElementById("bill-zero-error").style.visibility = "hidden";
+
+document
+  .getElementById("person-value")
+  .addEventListener("invalid", function (event) {
+    event.preventDefault();
+    document
+      .getElementById("person-input-field")
+      .classList.add("person-invalid");
+    document
+      .getElementById("person-input-field")
+      .classList.remove("input-field");
+
+    document.getElementById("person-zero-error").style.visibility = "visible";
+  });
+
 const personInput = () => {
   numberOfPeople = document.getElementById("person-value").value;
 
   if (/^\d+$/.test(numberOfPeople)) {
+    //if (numberOfPeople % numberOfPeople == 1) {
     numberOfPeopleValid = "true";
     //document.getElementById("test4").innerHTML = numberOfPeopleValid;
   } else {
@@ -133,7 +168,7 @@ let dollar = "$";
 
 const runTipCalculator = () => {
   if (
-    buttonValue > 0 &&
+    buttonValue >= 0 &&
     buttonValue <= 100 &&
     billValue > 0 &&
     billValue <= 1000000 &&
@@ -233,6 +268,8 @@ customToggle.addEventListener("change", () => {
   unlatchTwentyFive();
   unlatchFifty();
   latchCustom();
+  document.getElementById("custom-value").classList.remove("custom-invalid");
+  document.getElementById("custom-value").classList.add("custom-input");
   //runTipCalculator();
   //document.getElementById("test").innerHTML = buttonValue;
 });
@@ -241,6 +278,9 @@ billToggle.addEventListener("change", () => {
   //if (e.key === "Enter") {
   //runTipCalculator();
   billInput();
+  document.getElementById("bill-input-field").classList.remove("bill-invalid");
+  document.getElementById("bill-input-field").classList.add("input-field");
+  document.getElementById("bill-zero-error").style.visibility = "hidden";
   // } else {
   //  return;
   //}
@@ -250,8 +290,36 @@ personToggle.addEventListener("change", () => {
   // if (e.key === "Enter") {
   //runTipCalculator();
   personInput();
-
+  document
+    .getElementById("person-input-field")
+    .classList.remove("person-invalid");
+  document.getElementById("person-input-field").classList.add("input-field");
+  document.getElementById("person-zero-error").style.visibility = "hidden";
   // } else {
   //   return;
   //  }
+});
+
+const resetToggle = document.querySelector("#reset-button");
+
+const resetPage = () => {
+  buttonValue = 0;
+  document.getElementById("tip-calc").innerHTML = "";
+  document.getElementById("total-calc").innerHTML = "";
+  document.getElementById("tip-placeholder").style.visibility = "visible";
+  document.getElementById("total-placeholder").style.visibility = "visible";
+  unlatchFive();
+  unlatchTen();
+  unlatchFifteen();
+  unlatchTwentyFive();
+  unlatchFifty();
+  unlatchCustom();
+  document.getElementById("bill-value").value = "";
+  document.getElementById("person-value").value = "";
+  billInput();
+  personInput();
+};
+
+resetToggle.addEventListener("click", () => {
+  resetPage();
 });

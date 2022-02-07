@@ -107,6 +107,24 @@ input[type="number"] {
   max-width: 493px;
 }
 
+.bill-invalid {
+  padding: 6px 16px;
+  background-color: var(--lighter-gray-cyan);
+  border-radius: 4px;
+  display: flex;
+  max-width: 493px;
+  border: 2px solid hsl(360, 100%, 72%);
+}
+
+.person-invalid {
+  padding: 6px 16px;
+  background-color: var(--lighter-gray-cyan);
+  border-radius: 4px;
+  display: flex;
+  max-width: 493px;
+  border: 2px solid hsl(360, 100%, 72%);
+}
+
 .bill-input:focus {
   outline: none !important;
 }
@@ -119,8 +137,26 @@ input[type="number"] {
   border: 2px solid var(--main-cyan);
 }
 
+.people-label-container {
+  display: grid;
+}
+
+.bill-label-container {
+  display: grid;
+}
+
 label {
   font-size: 16px;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.zero-error {
+  font-size: 16px;
+  grid-row: 1;
+  grid-column: 2;
+  text-align: right;
+  color: hsl(360, 100%, 72%);
 }
 
 .icon-container {
@@ -217,12 +253,29 @@ label {
   background-color: var(--lighter-gray-cyan);
 }
 
+.custom-invalid {
+  width: 47%;
+  border-radius: 4px;
+  padding: 0 16px;
+  color: var(--dark-cyan);
+  background-color: var(--lighter-gray-cyan);
+  border: 2px solid hsl(360, 100%, 72%);
+}
+
 .custom-input:focus {
   outline-color: var(--main-cyan);
 }
 
+.custom-invalid:focus {
+  border: 2px solid hsl(360, 100%, 72%);
+  outline: none;
+}
+
 @media (min-width: 375px) {
   .custom-input {
+    width: 155px;
+  }
+  .custom-invalid {
     width: 155px;
   }
 }
@@ -337,6 +390,7 @@ label {
   font-size: 16px;
   padding: 8px;
   border-style: hidden;
+  border-radius: 5px;
   font-family: "Space Mono", monospace;
   opacity: 0.2;
   background-color: var(--main-cyan);
