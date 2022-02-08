@@ -45,7 +45,7 @@ Users should be able to:
 
 ### Continued development
 
-This project is nearly complete, although I have some issues with submitting inputs due to how my forms set up. There are a few minor issues in terms of visibility and active states that I am aware of, and I plan to iron out these issues in the coming days.
+This project is nearly complete, although I have some issues with submitting inputs due to how my forms are set up. There are a few minor issues in terms of visibility and active states that I am aware of, and I plan to iron out these issues in the coming days.
 
 ## Author
 
