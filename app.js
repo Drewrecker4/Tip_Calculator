@@ -157,6 +157,7 @@ const personInput = () => {
 
 const runTipCalculator = () => {
   //if statement prevents calculator from running until all inputs are satisfied//
+
   if (
     buttonValue >= 0 &&
     buttonValue <= 100 &&
